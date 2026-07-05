@@ -1,6 +1,8 @@
+import UserTable from "../components/users/UserTable";
+
 function Users() {
     return (
-        <h1>Users Page</h1>
+        <UserTable />
     );
 }
 

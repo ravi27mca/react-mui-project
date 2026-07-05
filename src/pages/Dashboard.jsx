@@ -1,7 +1,7 @@
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 
-import DashboardCard from "../components/DashboardCards";
+import DashboardCard from "../components/dashboard/DashboardCards";
 
 import PeopleIcon from "@mui/icons-material/People";
 import InventoryIcon from "@mui/icons-material/Inventory";
