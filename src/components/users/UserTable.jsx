@@ -12,7 +12,7 @@ import {
     Dialog,
     DialogTitle,
     DialogContent,
-    DialogActions, Snackbar, Alert
+    DialogActions, Snackbar, Alert, Pagination
 } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import EditIcon from "@mui/icons-material/Edit";
@@ -79,6 +79,7 @@ function UserTable() {
     const [nameError, setNameError] = useState("");
     const [emailError, setEmailError] = useState("");
     const [roleError, setRoleError] = useState("");
+    const [page, setPage] = useState(1);
 
     const handleSave = () => {
         setNameError("");
@@ -174,6 +175,9 @@ function UserTable() {
         setOpen(true);
 
     };
+    const rowsPerPage = 5;
+    const startIndex = (page - 1) * rowsPerPage;
+    const endIndex = startIndex + rowsPerPage;
 
 
     return (
@@ -240,7 +244,7 @@ function UserTable() {
                             users
                                 .filter((user) =>
                                     user.name.toLowerCase().includes(search.toLowerCase())
-                                )
+                                ).slice(startIndex, endIndex)
                                 .map((user) => (
 
                                     <TableRow key={user.id}>
@@ -334,6 +338,20 @@ function UserTable() {
                 </Table>
 
             </Paper>
+            <Box
+                mt={3}
+                display="flex"
+                justifyContent="center"
+            >
+
+                <Pagination
+                    count={Math.ceil(users.length / rowsPerPage)}
+                    page={page}
+                    color="primary"
+                    onChange={(event, value) => setPage(value)}
+                />
+
+            </Box>
             <Snackbar
                 open={snackbarOpen}
                 autoHideDuration={3000}
