@@ -1,7 +1,7 @@
+import ProductTable from "../components/products/ProductTable";
+
 function Products() {
-    return (
-        <h1>Products Page</h1>
-    );
+    return <ProductTable />;
 }
 
 export default Products;
