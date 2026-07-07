@@ -1,65 +1,54 @@
-import {
-    Card,
-    CardContent,
-    Typography,
-    Box,
-    Avatar,
-} from "@mui/material";
+import { Grid } from "@mui/material";
 
-function DashboardCard({
-    title,
-    value,
-    icon,
-    color,
-}) {
+import PeopleIcon from "@mui/icons-material/People";
+import InventoryIcon from "@mui/icons-material/Inventory";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
+
+import StatCard from "./StatCard";
+
+function DashboardCards() {
     return (
-        <Card
-            elevation={5}
-            sx={{
-                transition: "0.3s",
+        <Grid container spacing={3}>
 
-                "&:hover": {
-                    transform: "translateY(-6px)",
-                    boxShadow: 8,
-                },
-            }}
-        >
-            <CardContent>
+            <Grid size={{ xs: 12, sm: 6, md: 3 }}>
+                <StatCard
+                    title="Users"
+                    value="120"
+                    icon={<PeopleIcon fontSize="large" color="primary" />}
+                    color="#1976d2"
+                />
+            </Grid>
 
-                <Box
-                    display="flex"
-                    justifyContent="space-between"
-                    alignItems="center"
-                >
+            <Grid size={{ xs: 12, sm: 6, md: 3 }}>
+                <StatCard
+                    title="Products"
+                    value="85"
+                    icon={<InventoryIcon fontSize="large" color="success" />}
+                    color="green"
+                />
+            </Grid>
 
-                    <Typography
-                        variant="h6"
-                        color="text.secondary"
-                    >
-                        {title}
-                    </Typography>
+            <Grid size={{ xs: 12, sm: 6, md: 3 }}>
+                <StatCard
+                    title="Orders"
+                    value="230"
+                    icon={<ShoppingCartIcon fontSize="large" color="warning" />}
+                    color="orange"
+                />
+            </Grid>
 
-                    <Avatar
-                        sx={{
-                            bgcolor: color,
-                        }}
-                    >
-                        {icon}
-                    </Avatar>
+            <Grid size={{ xs: 12, sm: 6, md: 3 }}>
+                <StatCard
+                    title="Revenue"
+                    value="₹8,50,000"
+                    icon={<CurrencyRupeeIcon fontSize="large" color="error" />}
+                    color="red"
+                />
+            </Grid>
 
-                </Box>
-
-                <Typography
-                    variant="h4"
-                    mt={3}
-                    fontWeight="bold"
-                >
-                    {value}
-                </Typography>
-
-            </CardContent>
-        </Card>
+        </Grid>
     );
 }
 
-export default DashboardCard;
+export default DashboardCards;

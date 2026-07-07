@@ -1,7 +1,6 @@
-function Orders() {
-    return (
-        <h1>Orders Page</h1>
-    );
-}
+import OrderTable from "../components/orders/OrderTable.jsx";
 
+function Orders() {
+    return (<OrderTable />);
+}
 export default Orders;
